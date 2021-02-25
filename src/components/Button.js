@@ -1,8 +1,12 @@
 import React from "react";
+import LanguageContext from "../context/LanguageContext";
 
 class Button extends React.Component {
+  static contextType = LanguageContext;
+
   render() {
-    return <button className="ui button primary">Sumbit</button>;
+    const text = this.context === "english" ? "Submit" : "Voorleggen";
+    return <button className="ui button primary">{text}</button>;
   }
 }
 
